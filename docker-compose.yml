@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: smart_hr_db
+    environment:
+      SA_PASSWORD: YourStrongPassword@123
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - smart_hr_network
+
+  api:
+    build:
+      context: ./Backend/SmartHRAPI
+      dockerfile: Dockerfile
+    container_name: smart_hr_api
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=SmartHRDB;User Id=sa;Password=YourStrongPassword@123;Encrypt=false;TrustServerCertificate=true;"
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - sqlserver
+    networks:
+      - smart_hr_network
+
+  frontend:
+    build:
+      context: ./Frontend/smart-hr-app
+      dockerfile: Dockerfile
+    container_name: smart_hr_frontend
+    ports:
+      - "3000:80"
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    depends_on:
+      - api
+    networks:
+      - smart_hr_network
+
+volumes:
+  sqlserver_data:
+
+networks:
+  smart_hr_network:
+    driver: bridge

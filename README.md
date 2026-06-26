@@ -1,55 +1,89 @@
-# Smart HR ERP System
+# Smart HR ERP
 
 ## نظام إدارة الموارد البشرية الاحترافي
 
-نظام ERP احترافي متكامل لإدارة الحضور والانصراف والموارد البشرية وحساب المرتبات.
+### المميزات الرئيسية
 
-## المواصفات الفنية
+✅ **لوحة تحكم احترافية** - رسوم بيانية وإحصائيات فورية
+✅ **إدارة الموظفين** - بيانات شاملة ووثائق رقمية
+✅ **نظام الحضور والانصراف** - دعم أجهزة البصمة المتعددة
+✅ **إدارة الإجازات** - أنواع متعددة من الإجازات والأذونات
+✅ **حساب الرواتب التلقائي** - حسابات دقيقة ومرنة
+✅ **تقارير متقدمة** - تصدير PDF و Excel
+✅ **نظام صلاحيات دقيق** - تحكم كامل بالوصول
+✅ **واجهة عربية** - دعم كامل للعربية والإنجليزية
+✅ **وضع ليلي** - واجهة مريحة للعين
+✅ **متوافق مع الأجهزة** - Responsive Design
 
-### Frontend
-- React + TypeScript
-- Material UI
-- RTL Support (عربي)
-- Dark & Light Mode
-- Responsive Design
+## المتطلبات
+
+- .NET 9.0 أو أحدث
+- SQL Server 2019 أو أحدث
+- Node.js 18 أو أحدث
+- Docker (اختياري)
+
+## البدء السريع
+
+### التثبيت باستخدام Docker
+
+```bash
+docker-compose up -d
+```
+
+ثم اذهب إلى: http://localhost:3000
+
+### التثبيت اليدوي
+
+#### Backend
+```bash
+cd Backend/SmartHRAPI
+dotnet restore
+dotnet ef database update
+dotnet run
+```
+
+#### Frontend
+```bash
+cd Frontend/smart-hr-app
+npm install
+npm run dev
+```
+
+## الوثائق
+
+- [API Documentation](Documentation/API.md)
+- [Architecture](Documentation/Architecture.md)
+- [Deployment Guide](Documentation/Deployment.md)
+- [Contributing](CONTRIBUTING.md)
+
+## التكنولوجيا المستخدمة
 
 ### Backend
-- ASP.NET Core 9 Web API
-- SQL Server Database
-- Entity Framework Core (Code First)
+- ASP.NET Core 9
+- Entity Framework Core
+- SQL Server
 - JWT Authentication
-- Clean Architecture
 
-## المميزات الرئيسية
-
-1. **لوحة تحكم احترافية**
-2. **إدارة الموظفين**
-3. **نظام الحضور والانصراف**
-4. **إدارة الشفتات والجداول**
-5. **نظام الإجازات والأذونات**
-6. **نظام حساب المرتبات**
-7. **التقارير المتقدمة**
-8. **نظام الصلاحيات**
-9. **الإشعارات**
-10. **سجل العمليات**
-
-## البنية المشروعية
-
-```
-HR-SYS-V1/
-├── Backend/
-│   ├── SmartHRAPI/
-│   ├── SmartHRAPI.Tests/
-│   └── SmartHRAPI.sln
-├── Frontend/
-│   └── smart-hr-app/
-├── Database/
-│   ├── Scripts/
-│   └── Migrations/
-├── Docker/
-└── Documentation/
-```
+### Frontend
+- React 18
+- TypeScript
+- Material UI
+- Recharts
 
 ## الترخيص
 
-جميع الحقوق محفوظة © 2026
+MIT License - انظر LICENSE.md للمزيد
+
+## التواصل والدعم
+
+للمزيد من المعلومات:
+- البريد الإلكتروني: support@smarthr.com
+- الموقع الرسمي: https://smarthr.com
+
+## المساهمون
+
+شكر خاص لجميع المساهمين في هذا المشروع.
+
+---
+
+**تم التطوير بواسطة فريق Smart HR**
